@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Team Bingo</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+        <script>
+            $(() => {
+                'use strict';
+                $('button').click(function() {
+                    $(this).toggleClass('pressed');
+                });
+            });
+        </script>
+        <style>
+        		th {font-size: 150%;}
+            button {background-color: #f0f0f0; height: 100px; width: 150px;}
+            button.pressed {background-color: red;}
+            button {font-size: 150%;}
+        </style>
+    </head>
+    <body>
+<table><caption><center><h1>Team BINGO</h1></center></caption>
+<tr>
+	<th>B</th>
+	<th>I</th>
+	<th>N</th>
+	<th>G</th>
+	<th>O</th>
+</tr>
+<tr>
+	<td><button id='c21b1'>09</button></td>
+	<td><button id='c21i1'>22</button></td>
+	<td><button id='c21n1'>43</button></td>
+	<td><button id='c21g1'>47</button></td>
+	<td><button id='c21o1'>67</button></td>
+</tr>
+<tr>
+	<td><button id='c21b2'>11</button></td>
+	<td><button id='c21i2'>30</button></td>
+	<td><button id='c21n2'>33</button></td>
+	<td><button id='c21g2'>55</button></td>
+	<td><button id='c21o2'>62</button></td>
+</tr>
+<tr>
+	<td><button id='c21b3'>14</button></td>
+	<td><button id='c21i3'>23</button></td>
+	<td><button id='c21n3'>FREE</button></td>
+	<td><button id='c21g3'>51</button></td>
+	<td><button id='c21o3'>73</button></td>
+</tr>
+<tr>
+	<td><button id='c21b4'>12</button></td>
+	<td><button id='c21i4'>21</button></td>
+	<td><button id='c21n4'>36</button></td>
+	<td><button id='c21g4'>49</button></td>
+	<td><button id='c21o4'>68</button></td>
+</tr>
+<tr>
+  <td><button id='c21b5'>07</button></td>
+  <td><button id='c21i5'>29</button></td>
+  <td><button id='c21n5'>45</button></td>
+  <td><button id='c21g5'>46</button></td>
+  <td><button id='c21o5'>66</button></td>
+</tr>
+</table>
+
+
+    </body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="Bingo Calling Card">
+  <meta name="keywords" content="bingo, calling, numbers">
+  <meta name="author" content="Robert Holland">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta source1="https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array">
+<title>Bingo Call Numbers</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link rel="stylesheet" href="./css/filename.css" />
+<script>
+function bingoshuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+  return array;
+}
+
+//Bingo Numbers:
+var arr = ["B01", "B02", "B03", "B04", "B05", "B06", "B07", "B08", "B09", "B10", "B11", "B12", "B13", "B14", "B15", "G46", "G47", "G48", "G49", "G50", "G51", "G52", "G53", "G54", "G55", "G56", "G57", "G58", "G59", "G60", "I16", "I17", "I18", "I19", "I20", "I21", "I22", "I23", "I24", "I25", "I26", "I27", "I28", "I29", "I30", "N31", "N32", "N33", "N34", "N35", "N36", "N37", "N38", "N39", "N40", "N41", "N42", "N43", "N44", "N45", "O61", "O62", "O63", "O64", "O65", "O66", "O67", "O68", "O69", "O70", "O71", "O72", "O73", "O74", "O75"];
+
+bingoshuffle(arr);
+var makesomejson = JSON.stringify(arr);
+var xyz=JSON.parse(makesomejson);
+
+$(() => {
+    'use strict';
+    $('button').click(function() {
+        $(this).toggleClass('pressed');
+    });
+});
+
+</script>
+</head>
+
+<style>
+/*common css*/
+table, th, td {border-collapse:collapse; border: 0px solid black;}
+th {background-color:#00ffff;}
+tr:nth-child(even) {background: #EEE;}
+tr:nth-child(odd) {background: #FFF;}
+/*td:nth-child(even) {visibility: hidden;}*/
+/*tr:nth-child(odd) {visibility: hidden;}*/
+a:link {text-decoration: none;}
+a:visited {text-decoration: none;}
+a:hover {text-decoration: underline;}
+a:active {text-decoration: underline;}
+caption {font-size: 150%;}
+td.col1 {font-size: 75%;}
+td.callobj {font-size: 150%;}
+button {background-color: #f0f0cf0; height: 50px; width: 75px;}
+button.pressed {background-color: green;}
+button {font-size: 150%;}
+li.instructions {font-size: 125%;}
+</style>
+
+<body>
+
+<br />
+
+<div>
+<p id="instructions"><ul><li class="instructions">Call Bingo numbers from left to right.</li>
+<li class="instructions">Click on the Bingo numbers that have been called.</li>
+<li class="instructions">Refresh the page to generate a new random list of Bingo numbers.</li></ul></p>
+<div id="bingo">
+
+</div>
+<script>
+var totalbgnums = xyz.length;
+var rows = totalbgnums/5; //15 rows
+var columns = 5;
+var bgcallnum = 0; //Bingo call number start count.
+bingodata = "<table><caption>Bingo Call Check-List</caption><tr></tr>";
+  for (r = 0; r < rows; r++) {
+    bingodata +="<tr>";
+    for (c = 0; c < columns; c++) {
+      if(bgcallnum == totalbgnums) break;//console.log(count); // check if number of cells is equal number of objects to stop
+      		bingodata +="<td><button class'callobj' colspan='3'>" + xyz[bgcallnum ] + "</button></td>";//Publish items from the array.
+      bgcallnum++;
+    }
+    bingodata +="</tr>";
+  }
+bingodata += "</table>";
+document.getElementById("bingo").innerHTML = bingodata;
+</script>
+</div>
+
+</body>
+</html>
