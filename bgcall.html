@@ -14,7 +14,7 @@
 function bingoshuffle(array) {
   var currentIndex = array.length, temporaryValue, randomIndex;
 
-  // While there remain elements to shuffle...
+  // While there are remaining elements to shuffle...
   while (0 !== currentIndex) {
 
     // Pick a remaining element...
@@ -64,20 +64,22 @@ td.callobj {font-size: 150%;}
 button {background-color: #f0f0cf0; height: 50px; width: 75px;}
 button.pressed {background-color: green;}
 button {font-size: 150%;}
+#phonetic {font-size: 150%; vertical-align: top; padding-left: 20px;}
 li.instructions {font-size: 125%;}
+div.fixed {position: fixed; bottom: 90; right: 0; width: 300px; border: 1px solid #73AD21;}
 </style>
 
 <body>
-
+<a href="./index.html">Back</a>
 <br />
 
 <div>
 <p id="instructions"><ul><li class="instructions">Call Bingo numbers from left to right.</li>
 <li class="instructions">Click on the Bingo numbers that have been called.</li>
 <li class="instructions">Refresh the page to generate a new random list of Bingo numbers.</li></ul></p>
-<div id="bingo">
-
 </div>
+<table><tr><td>
+<div id="bingo">
 <script>
 var totalbgnums = xyz.length;
 var rows = totalbgnums/5; //15 rows
@@ -97,6 +99,15 @@ bingodata += "</table>";
 document.getElementById("bingo").innerHTML = bingodata;
 </script>
 </div>
+</td><td id="phonetic">
+Phoentic pronounciation:<br />
+B = Bravo<br />
+I = India<br />
+N = November<br />
+G = Golf<br />
+O = Oscar<br />
+</td></tr>
+</table>
 
 </body>
 </html>
